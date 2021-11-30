@@ -4,7 +4,7 @@
 # <xbar.version>v1.0</xbar.version>
 # <xbar.author>Ali Kemal Öcalan</xbar.author>
 # <xbar.author.github>alikemalocalan</xbar.author.github>
-# <xbar.desc>Simple K8s config switcher for working with multi k8s cluster  </xbar.desc>
+# <xbar.desc>Simple K(s config switcher for working with multi k8s cluster  </xbar.desc>
 # <xbar.dependencies></xbar.dependencies>
 # <xbar.image></xbar.image>
 
@@ -28,7 +28,7 @@ default_config=$(head -n 1 $default_file_path | tr -d '\n')
 
 echo "$default_config | color=green"
 
-inactive_configs=$(eval "ls ~/.kube | grep .k8s")
+inactive_configs=$(eval "ls $KUBE_HOME | grep .k8s")
 
 for f in $inactive_configs; do
   if [ "$f" != "$default_config" ]; then
